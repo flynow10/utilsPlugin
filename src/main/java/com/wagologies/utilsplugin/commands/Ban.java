@@ -11,7 +11,7 @@ public class Ban extends CommandBase {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length != 1)
             return false;
-        if(Bukkit.getPlayer(args[0]))
+        if(Bukkit.getPlayer(args[0]) != null)
         {
 
         }
