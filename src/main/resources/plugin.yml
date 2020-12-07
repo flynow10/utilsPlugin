@@ -1,0 +1,4 @@
+name: UtilsPlugin
+version: ${project.version}
+main: com.wagologies.utilsplugin.UtilsPlugin
+api-version: 1.13
