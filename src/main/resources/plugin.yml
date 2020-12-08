@@ -2,3 +2,24 @@ name: UtilsPlugin
 version: ${project.version}
 main: com.wagologies.utilsplugin.UtilsPlugin
 api-version: 1.13
+commands:
+  ban:
+    usage: /ban <player>
+    description: Ban a player
+    permission: utils.ban
+  vanish:
+    usage: /vanish [<player>]
+    description: Vanish from everyone
+    permission: utils.vanish
+  fly:
+    usage: /fly [<player>]
+    description: Enables/Disables flight in all gamemodes
+    permission: utils.fly
+  invsee:
+    usage: /invsee <player> [main|ender]
+    description: See player inventory
+    permission: utils.invsee
+  heal:
+    usage: /heal [<player>]
+    description: Heal yourself or a player
+    permission: utils.heal

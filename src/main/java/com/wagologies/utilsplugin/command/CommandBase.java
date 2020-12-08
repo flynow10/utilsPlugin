@@ -1,8 +1,6 @@
-package com.wagologies.utilsplugin.commands;
+package com.wagologies.utilsplugin.command;
 
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 
 public abstract class CommandBase implements CommandExecutor {
 
