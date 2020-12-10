@@ -23,3 +23,11 @@ commands:
     usage: /heal [<player>]
     description: Heal yourself or a player
     permission: utils.heal
+  god:
+    usage: /god <player>
+    description: Makes you invincible
+    permission: utils.god
+  items:
+    usage: /items
+    description: Gives you quick access to interesting items
+    permission: utils.items
