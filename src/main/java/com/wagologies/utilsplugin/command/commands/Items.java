@@ -4,6 +4,7 @@ import com.wagologies.utilsplugin.command.CommandBase;
 import com.wagologies.utilsplugin.items.ItemsPreset;
 import com.wagologies.utilsplugin.utils.GlowEnchantment;
 import com.wagologies.utilsplugin.utils.gui.Gui;
+import com.wagologies.utilsplugin.utils.gui.Item;
 import com.wagologies.utilsplugin.utils.gui.YesNo;
 import com.wagologies.utilsplugin.utils.gui.pagenation.Page;
 import com.wagologies.utilsplugin.utils.gui.pagenation.Pagenation;
@@ -200,6 +201,11 @@ public class Items extends CommandBase implements Listener {
                     pageList.add(new Page(page1));
                     pageList.add(new Page(page2));
                     return pageList;
+                }
+
+                @Override
+                public List<Item> getExtraItems() {
+                    return null;
                 }
             }));
             return true;

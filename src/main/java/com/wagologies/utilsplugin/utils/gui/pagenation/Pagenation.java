@@ -92,6 +92,8 @@ public class Pagenation implements com.wagologies.utilsplugin.utils.gui.Preset {
                 return forwardArrow;
             }, player -> pageNumber++));
         }
+        if(preset.getExtraItems() != null)
+            items.addAll(preset.getExtraItems());
         return items;
     }
 }

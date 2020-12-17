@@ -4,6 +4,7 @@ import com.google.common.reflect.ClassPath;
 import com.wagologies.utilsplugin.command.CommandBase;
 import com.wagologies.utilsplugin.utils.GlowEnchantment;
 import com.wagologies.utilsplugin.utils.gui.SignGUI;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -38,7 +39,9 @@ public final class UtilsPlugin extends JavaPlugin {
                 Object commandObject = commandClass.newInstance();
                 if (commandObject instanceof CommandBase) {
                     CommandBase cmd = (CommandBase) commandObject;
-                    getCommand(cmd.getCommand()).setExecutor(cmd);
+                    String command = cmd.getCommand();
+                    PluginCommand pluginCommand = getCommand(command);
+                    pluginCommand.setExecutor(cmd);
                 }
             } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
                 e.printStackTrace();

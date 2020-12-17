@@ -1,7 +1,6 @@
 name: UtilsPlugin
 version: ${project.version}
 main: com.wagologies.utilsplugin.UtilsPlugin
-api-version: 1.13
 commands:
   ban:
     usage: /ban <player>
@@ -12,11 +11,11 @@ commands:
     description: Vanish from everyone
     permission: utils.vanish
   fly:
-    usage: /fly [<player>]
+    usage: /fly [<player>] [<speed>]
     description: Enables/Disables flight in all gamemodes
     permission: utils.fly
   invsee:
-    usage: /invsee <player> [main|ender]
+    usage: /invsee <player> [<main|ender>]
     description: See player inventory
     permission: utils.invsee
   heal:
@@ -31,3 +30,21 @@ commands:
     usage: /items
     description: Gives you quick access to interesting items
     permission: utils.items
+  warp:
+    usage: /warp <world>
+    description: Teleports you between worlds
+    permission: utils.warp
+  loadworld:
+    usage: /loadworld <worldName>
+    description: Loads an existing world
+    permission: utils.load
+  pvp:
+    usage: /pvp
+    description: Opens a config menu for pvp rules
+    permission: utils.pvp
+  createnpc:
+    usage: /createnpc
+    permission: utils.npc.create
+  lookat:
+    usage: /lookat
+    permission: utils.npc.lookat

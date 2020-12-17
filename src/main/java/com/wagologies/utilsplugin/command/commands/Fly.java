@@ -25,12 +25,32 @@ public class Fly extends CommandBase {
             else
                 commandSender.sendMessage(ChatColor.RED + "You must be a player to use this command without arguments!");
         }
-        else
+        else if(strings.length == 1)
         {
             Player player = Bukkit.getPlayer(strings[0]);
             if(player != null) {
                 toggleFlight(player);
                 commandSender.sendMessage(ChatColor.GREEN + "You toggled " + ChatColor.BLUE + ChatColor.BOLD + player.getName() + ChatColor.RESET + ChatColor.GREEN + "'s flight");
+            }
+            else
+                commandSender.sendMessage(ChatColor.RED + "Couldn't find player: " + ChatColor.BLUE + ChatColor.BOLD + strings[0]);
+        }
+        else if(strings.length == 2)
+        {
+            Player player = Bukkit.getPlayer(strings[0]);
+            if(player != null) {
+                float parsedInt = 1;
+                try
+                {
+                    parsedInt = Float.parseFloat(strings[1]);
+                }
+                catch (NumberFormatException e)
+                {
+                    player.sendMessage(ChatColor.RED.toString() + "Please enter a number");
+                    return true;
+                }
+                player.setFlySpeed(Math.max(Math.min(parsedInt, 10), -10)/10f);
+                player.sendMessage(ChatColor.GREEN + "You're fly speed is now " + ChatColor.BLUE.toString() + ChatColor.BOLD.toString() + parsedInt);
             }
             else
                 commandSender.sendMessage(ChatColor.RED + "Couldn't find player: " + ChatColor.BLUE + ChatColor.BOLD + strings[0]);
