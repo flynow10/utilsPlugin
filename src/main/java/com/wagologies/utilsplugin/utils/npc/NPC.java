@@ -1,9 +1,7 @@
 package com.wagologies.utilsplugin.utils.npc;
 
 import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.ProtocolLib;
 import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.events.ListenerPriority;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
@@ -23,7 +21,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.util.Vector;
 
-import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -37,7 +34,7 @@ public class NPC {
     private String name = uuid.toString().replace("-", "").substring(0, 10);
     private GameProfile gameProfile = new GameProfile(uuid, name);
     private int entityId = Integer.MAX_VALUE - npcs.size();
-    private boolean removed = false;
+    private boolean spawned = false;
     private NPCListener listener = new NPCListener(this);
     private NPC that = this;
     private PacketAdapter adapter = new PacketAdapter(UtilsPlugin.getInstance(), ListenerPriority.NORMAL,
@@ -79,16 +76,16 @@ public class NPC {
         SendShowPackets();
         Bukkit.getPluginManager().registerEvents(listener, UtilsPlugin.getInstance());
         ProtocolLibrary.getProtocolManager().addPacketListener(adapter);
-        removed = true;
+        spawned = true;
     }
 
     public void remove()
     {
         HandlerList.unregisterAll(listener);
+        SendHidePackets();
         seeingPlayers.clear();
         ProtocolLibrary.getProtocolManager().removePacketListener(adapter);
-        removed = false;
-        SendHidePackets();
+        spawned = false;
     }
 
     public static void Remove(int id)
